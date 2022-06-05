@@ -31,3 +31,9 @@ I have two solutions for this question. The first is my own, dfs, but exceeded t
 [Question description](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) here.
 
 I use double pointer again for this question. The first pointer ```t_head1``` aims to point to the node ```n``` nodes after the second pointer ```t_head2```. After moving ```t_head1``` to the desired position, I check if ```t_head1 is None```. If yes, then we know that ```n``` is the size of the list, and the first node will be removed. Thus we simply return ```head.next```. Otherwise, we use a loop to make ```t_head1``` reach the last node, and now ```t_head2``` points to the node just before the node to be removed from list, and now we remove this node and return ```head```.
+
+## Question 6: Valid Parenthesis
+[Question description](https://leetcode.com/problems/valid-parentheses/) here.
+
+I use a stack structure and its First-In-First-Out to solve this question. When I see one of ```'([{'```, I push this char onto stack. When I see one of ```'')]}```, I check if the top item of the stack is the corresponding parenthesis. If the stack is empty, then this close parenthesis is redundant, and thus return false. If not corresponding, then return false as well. At the end, check if there are unclosed left parenthesis on stack.
+The stack is actually a similar process to recursion. 
