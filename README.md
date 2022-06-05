@@ -19,3 +19,10 @@ This question is a little bit conceptually complex. What I did is to simply set 
 But we need a proof on why this solution is optimal. Here I quote a comment under the official solution for this question by **davidhuangdw**:
 1. case height[i] $<$ height[j]: we can prove that j is the best choice here. For any k such that $i \le k \le j$, we have area(i, j) $\ge$ area(i, k). So, area(i, j) is the max area involving i. This means that max_area_in_range(i, j) = max(max_area_in_range(i+1, j), area(i, j)). By this, we can see that i += 1 is the best choice here.
 2. case height[i] $\ge$ height[j]: we can prove similarly that j -= 1 is the best choice here.
+
+## Question 4: 3 Sum
+[Question description](https://leetcode.com/problems/3sum/) here.
+
+I have two solutions for this question. The first is my own, dfs, but exceeded time limit when the *nums* list became too large. The second is from discussion of the problem on leetcode website, and here is the [link](https://www.code-recipe.com/post/three-sum).
+1. My solution uses dfs tree version and limited depth of 3. If the depth limit is exceeded or that there are no more numbers (no branches to go), it returns. If the depth limit is reached, we check if the path to the current leaf has a sum of 0. If yes, we append the path to the result. If depth limit is not reached, we simply dfs throughout each of the child nodes.
+2. The solution from online source uses three pointers (i, j, k) and two loops. The first loop traverse i from 0 to ```len(nums) - 1``` and in each outer loop, we set ```j, k = i + 1, len(nums) - 1``` and the condition of inner loop is that ```j < k```. In each inner loop, we check if ```nums[j] + nums[k] == -nums[i]```. If yes, we append the triplet to result and move k such that ```nums[k]``` is not what we used in this triplet. If ```nums[j] + nums[k] < -nums[i]```, we move j to right. Otherwise, we move k to left. (note that this array is sorted at the beginning).
