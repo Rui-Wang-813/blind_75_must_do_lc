@@ -1,5 +1,5 @@
 # Blind 75 Must Do Leetcode
-A list of leetcode questions by Dequan Zhang. Here is the [link](https://leetcode.com/list/945gkup7/)
+A list of leetcode questions. The list is given by **Dequan Zhang** @Dezhang1999. The solution is given by **Rui Wang** @Rui-Wang-813. Here is the [link to the list](https://leetcode.com/list/945gkup7/).
 
 ## Question 1: Two Sum
 [Question description](https://leetcode.com/problems/two-sum/) here.
