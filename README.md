@@ -15,10 +15,10 @@ In the loop, when we meet a character c, we check if we already met it. If we ha
 ## Question 3: Container with Most Water
 [Question description](https://leetcode.com/problems/container-with-most-water/) here.
 
-This question is a little bit conceptually complex. What I did is to simply set two pointers, i and j. i is the left most building, and j is the right most building. For each pair of (i, j), I calculate the area of them, and if height[i] $<$ height[j], I use i += 1, otherwise j -= 1.
+This question is a little bit conceptually complex. What I did is to simply set two pointers, i and j. i is the left most building, and j is the right most building. For each pair of (i, j), I calculate the area of them, and if ```height[i] < height[j]```, I use ```i += 1```, otherwise ```j -= 1```.
 But we need a proof on why this solution is optimal. Here I quote a comment under the official solution for this question by **davidhuangdw**:
-1. case height[i] $<$ height[j]: we can prove that j is the best choice here. For any k such that $i \le k \le j$, we have area(i, j) $\ge$ area(i, k). So, area(i, j) is the max area involving i. This means that max_area_in_range(i, j) = max(max_area_in_range(i+1, j), area(i, j)). By this, we can see that i += 1 is the best choice here.
-2. case height[i] $\ge$ height[j]: we can prove similarly that j -= 1 is the best choice here.
+1. case ```height[i] < height[j]```: we can prove that j is the best choice here. For any k such that $i \le k \le j$, we have ```area(i, j) <= area(i, k)```. So, ```area(i, j)``` is the max area involving i. This means that ```max_area_in_range(i, j) = max(max_area_in_range(i+1, j), area(i, j))```. By this, we can see that ```i += 1``` is the best choice here.
+2. case ```height[i] >= height[j]```: we can prove similarly that ```j -= 1``` is the best choice here.
 
 ## Question 4: 3 Sum
 [Question description](https://leetcode.com/problems/3sum/) here.
