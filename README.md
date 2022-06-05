@@ -35,5 +35,5 @@ I use double pointer again for this question. The first pointer ```t_head1``` ai
 ## Question 6: Valid Parenthesis
 [Question description](https://leetcode.com/problems/valid-parentheses/) here.
 
-I use a stack structure and its First-In-First-Out to solve this question. When I see one of ```'([{'```, I push this char onto stack. When I see one of ```'')]}```, I check if the top item of the stack is the corresponding parenthesis. If the stack is empty, then this close parenthesis is redundant, and thus return false. If not corresponding, then return false as well. At the end, check if there are unclosed left parenthesis on stack.
+I use a stack structure and its First-In-First-Out to solve this question. When I see one of ```'([{'```, I push this char onto stack. When I see one of ```')]}'```, I check if the top item of the stack is the corresponding parenthesis. If the stack is empty, then this close parenthesis is redundant, and thus return false. If not corresponding, then return false as well. At the end, check if there are unclosed left parenthesis on stack.
 The stack is actually a similar process to recursion. 
