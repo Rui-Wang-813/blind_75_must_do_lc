@@ -43,13 +43,7 @@ The stack is actually a similar process to recursion.
 
 I used two approaches for this question again. My first approach is dynamic programming, and my second approach is window expansion. Dynamic programming is too slow, while window expansion is much faster.
 1. In the dynamic programming version, I simply define subproblem 
-        $
-            P(i, j)=
-            \begin{cases}
-            True\text{ if }P(i+1, j-1)\text{ and }s[i] == s[j],\\
-            False\text{ otherwise}\\
-            \end{cases}
-        $
+        ![](doc/img/CodeCogsEqn.png)
     and the base cases are that:
     - $P(i, i) = True$
     - $P(i, i+1) = (s[i] == s[i+1])$
