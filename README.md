@@ -1,5 +1,5 @@
 # Blind 75 Must Do Leetcode
-A list of leetcode questions. The list is given by **Dequan Zhang** @Dezhang1999. The solution is given by **Rui Wang** @Rui-Wang-813. Here is the [link to the list](https://leetcode.com/list/945gkup7/).
+A list of leetcode questions. The list is given by **Dequan Zhang (张德权)** @Dezhang1999. The solution is given by **Rui Wang (王锐)** @Rui-Wang-813. Here is the [link to the list](https://leetcode.com/list/945gkup7/).
 
 ## Question 1: Two Sum
 [Question description](https://leetcode.com/problems/two-sum/) here.
@@ -36,4 +36,38 @@ I use double pointer again for this question. The first pointer ```t_head1``` ai
 [Question description](https://leetcode.com/problems/valid-parentheses/) here.
 
 I use a stack structure and its First-In-First-Out to solve this question. When I see one of ```'([{'```, I push this char onto stack. When I see one of ```')]}'```, I check if the top item of the stack is the corresponding parenthesis. If the stack is empty, then this close parenthesis is redundant, and thus return false. If not corresponding, then return false as well. At the end, check if there are unclosed left parenthesis on stack.
-The stack is actually a similar process to recursion. 
+The stack is actually a similar process to recursion.
+
+## Question 7: Longest Palindromic Substring
+[Question description](https://leetcode.com/problems/longest-palindromic-substring/) here.
+
+I used two approaches for this question again. My first approach is dynamic programming, and my second approach is window expansion. Dynamic programming is too slow, while window expansion is much faster.
+1. In the dynamic programming version, I simply define subproblem
+        $$
+            P(i, j)=
+            \begin{cases}
+            True\text{ if }P(i+1, j-1)\text{ and }s[i] == s[j],\\
+            False\text{ otherwise}\\
+            \end{cases}
+        $$
+    and the base cases are that:
+    - $P(i, i) = True$
+    - $P(i, i+1) = (s[i] == s[i+1])$
+    Unfortunately this method is pretty slow and could only beat 11% of python submissions.
+2. For the second approach I use a much more conceptually complex approach. It is a window expansion. Each palindrome has a center. Even if the length of this palindrome is even, there is a center between the two most middle chars. I want to try to expand from every possible center. So, I first plug in a ```'|'``` between each pair of chars (and the two ends). Call this string ```s1``` Then, for each center, I first find its max palindrome radius. Afther this, I use this center to find the max palindrome radius of each center to the right of this old center but in the palindrome window of it. For each center, I find its mirrored center about the old center. There are three cases:
+    1. The palindrome radius of mirrored center is smaller than the distance between the current center to the rightmost of palindrome window. In this case we can easily determine that the radius of the current center is same as the radius of mirrored center.
+    2. The palindrome radius of mirrored center is larger than the distance between the current center to the rightmost of palindrome window. In this case, we can see that the char just left to the leftmost of palindrome window (call it ```a```) is same as its mirrored char ```b``` about the mirrored center, and this ```b``` is same as its mirrored char ```c``` about the old center, while this ```c``` is different from the char ```d``` just right to the rightmost of palindrome window. So, the radius of current center is its distance to the rightmost of palindrom window.
+    3. The radius is same as the distance. In this case, we know no more info, and the radius of current center is to be determined (have to continue to the next iteration of outer loop).
+
+After this, we just get the substring from ```s``` by the ```center``` and ```radius``` we just determined from ```s1```. If ```radius``` is even, we know that the length of the substring in ```s``` is also even. Otherwise the substring is odd. When it is even, we use
+```
+lt_bd = (max_center - max_radius + 1) // 2
+rt_bd = (max_center + max_radius - 1) // 2
+return s[lt_bd:rt_bd+1]
+```
+Otherwise, we use
+```
+max_center //= 2
+max_radius //= 2
+return s[max_center-max_radius:max_center+max_radius+1]
+```
