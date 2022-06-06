@@ -42,7 +42,8 @@ The stack is actually a similar process to recursion.
 [Question description](https://leetcode.com/problems/longest-palindromic-substring/) here.
 
 I used two approaches for this question again. My first approach is dynamic programming, and my second approach is window expansion. Dynamic programming is too slow, while window expansion is much faster.
-1. In the dynamic programming version, I simply define subproblem 
+1. In the dynamic programming version, I simply define subproblem
+        
         ![q7-eqn](https://github.com/Rui-Wang-813/blind_75_must_do_lc/blob/main/doc/img/q7-eqn.png?raw=true)
 
     and the base cases are that:
