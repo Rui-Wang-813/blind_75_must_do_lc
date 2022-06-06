@@ -53,6 +53,7 @@ I used two approaches for this question again. My first approach is dynamic prog
     and the base cases are that:
     - $P(i, i) = True$
     - $P(i, i+1) = (s[i] == s[i+1])$
+    
     Unfortunately this method is pretty slow and could only beat 11% of python submissions.
 2. For the second approach I use a much more conceptually complex approach. It is a window expansion. Each palindrome has a center. Even if the length of this palindrome is even, there is a center between the two most middle chars. I want to try to expand from every possible center. So, I first plug in a ```'|'``` between each pair of chars (and the two ends). Call this string ```s1``` Then, for each center, I first find its max palindrome radius. Afther this, I use this center to find the max palindrome radius of each center to the right of this old center but in the palindrome window of it. For each center, I find its mirrored center about the old center. There are three cases:
     1. The palindrome radius of mirrored center is smaller than the distance between the current center to the rightmost of palindrome window. In this case we can easily determine that the radius of the current center is same as the radius of mirrored center.
