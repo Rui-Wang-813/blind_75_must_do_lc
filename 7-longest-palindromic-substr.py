@@ -1,3 +1,6 @@
+# solution by Rui Wang
+# problem description link: https://leetcode.com/problems/longest-palindromic-substring/
+
 class Solution:
     # dynamic programming version, but too slow.
     def longestPalindrome_dp(self, s: str) -> str:
