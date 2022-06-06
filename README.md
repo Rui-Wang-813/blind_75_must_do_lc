@@ -43,7 +43,7 @@ The stack is actually a similar process to recursion.
 
 I used two approaches for this question again. My first approach is dynamic programming, and my second approach is window expansion. Dynamic programming is too slow, while window expansion is much faster.
 1. In the dynamic programming version, I simply define subproblem 
-        <img src="doc\img\q7-eqn.png">
+        ![q7-eqn](https://github.com/Rui-Wang-813/blind_75_must_do_lc/blob/main/doc/img/q7-eqn.png?raw=true)
 
     and the base cases are that:
     - $P(i, i) = True$
@@ -67,3 +67,4 @@ max_center //= 2
 max_radius //= 2
 return s[max_center-max_radius:max_center+max_radius+1]
 ```
+![q7-eqn](https://user-images.githubusercontent.com/67272054/172080955-2d7992f3-8fc4-4236-8590-8776d9c8c2de.png)
