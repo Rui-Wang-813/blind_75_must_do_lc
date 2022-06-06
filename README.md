@@ -67,3 +67,8 @@ max_center //= 2
 max_radius //= 2
 return s[max_center-max_radius:max_center+max_radius+1]
 ```
+
+## Question 8: Merge Two Sorted Lists
+[Question description](https://leetcode.com/problems/merge-two-sorted-lists/) here.
+
+This is a very easy question. We simply create a new `ListNode` and two pointers each pointing to the current position in each list. In each iteration, we compare the pointed values in the two lists and insert the smaller one to the `result` and move that pointer. When one of the two pointers go to `None`, we simply inert every remaining value in the other list.
