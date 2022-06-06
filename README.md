@@ -67,4 +67,3 @@ max_center //= 2
 max_radius //= 2
 return s[max_center-max_radius:max_center+max_radius+1]
 ```
-![q7-eqn](https://user-images.githubusercontent.com/67272054/172080955-2d7992f3-8fc4-4236-8590-8776d9c8c2de.png)
