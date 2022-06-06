@@ -43,7 +43,7 @@ The stack is actually a similar process to recursion.
 
 I used two approaches for this question again. My first approach is dynamic programming, and my second approach is window expansion. Dynamic programming is too slow, while window expansion is much faster.
 1. In the dynamic programming version, I simply define subproblem 
-        <img src="doc/img/q7-eqn.png">
+        <img src="doc\img\q7-eqn.png">
 
     and the base cases are that:
     - $P(i, i) = True$
