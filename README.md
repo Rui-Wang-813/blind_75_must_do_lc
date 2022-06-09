@@ -81,3 +81,8 @@ This question is not conceptually hard, but requires relatively high coding tech
 2. Use k pointers. Iterate until all pointers are `None`. For each iteration, insert the min of the k pointers into the `result` list. This is too slow and only beats 5% python3 submissions.
 3. Use `queue.PriorityQueue`. Similar to approach 2, only using `PriorityQueue` to accomplish the comparing goal. The problem in this question is that I have to define an `__lt__` function for `ListNode` even if I put `(node.val, node)` in the priority queue, the reason is explained [here](https://stackoverflow.com/questions/53554199/heapq-push-typeerror-not-supported-between-instances). This solution has pretty satisfying complexity.
 4. Insert all node values into one list, sort them, and then convert the list as a singly-linked list. This is the most stupid version, but thanks to the `sort` function built-in for python3 and other optimizations, this became the fastest of all my 4 versions. It beats about 67% python3 submissions.
+
+## Question 10: Search in Rotated Sorted Array
+[Question description](https://leetcode.com/problems/search-in-rotated-sorted-array/) here.
+
+This question is very easy. We can simply find the pivot, and permute the array back. Then, we perform binary search in the permuted array. After we find the index of target in the permuted array, we use `(mi + i) % len(nums)` to get the index of target in the original array, where `mi` is the index of target in permuted array and `i` is the index of pivot.
