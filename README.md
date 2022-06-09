@@ -86,3 +86,10 @@ This question is not conceptually hard, but requires relatively high coding tech
 [Question description](https://leetcode.com/problems/search-in-rotated-sorted-array/) here.
 
 This question is very easy. We can simply find the pivot, and permute the array back. Then, we perform binary search in the permuted array. After we find the index of target in the permuted array, we use `(mi + i) % len(nums)` to get the index of target in the original array, where `mi` is the index of target in permuted array and `i` is the index of pivot.
+
+## Question 11: Combination Sum
+[Question description](https://leetcode.com/problems/combination-sum/) here.
+
+This question is not very complex. I have two versions of solution.
+1. Simply use dfs. If `target == 0`, then simply `return [[]]`. We need an inner list because we have found something, and we need an inner list such that previous calling frame can append something into it. If `target < 0 or len(candidates == 0)`, this means we cannot find anything, then we simply `return []`. Note that second case must come after first case. After handling these two base cases, we iterate through each candidate and recursively call with `candidates[i:]` and `target - candidates[i]` as we are handling with the case that the ith candidate is included in the combination.
+2. Use a `stack` variable to record the current path we've gone through. Other process very similar to first version. 
