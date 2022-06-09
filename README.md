@@ -72,3 +72,12 @@ return s[max_center-max_radius:max_center+max_radius+1]
 [Question description](https://leetcode.com/problems/merge-two-sorted-lists/) here.
 
 This is a very easy question. We simply create a new `ListNode` and two pointers each pointing to the current position in each list. In each iteration, we compare the pointed values in the two lists and insert the smaller one to the `result` and move that pointer. When one of the two pointers go to `None`, we simply inert every remaining value in the other list.
+
+## Question 9: Merge K Sorted Lists
+[Question description](https://leetcode.com/problems/merge-k-sorted-lists/) here.
+
+This question is not conceptually hard, but requires relatively high coding technique. I have four solutions for this question.
+1. Merge one by one. I use the `mergeTwoLists` function in [Question 8](https://github.com/Rui-Wang-813/blind_75_must_do_lc/blob/main/README.md#question-8-merge-two-sorted-lists) such that I merge the lists one by one (1 and 2 as 12, then 12 and 3 as 123, and so on...) But this is too slow and exceeds the time limit.
+2. Use k pointers. Iterate until all pointers are `None`. For each iteration, insert the min of the k pointers into the `result` list. This is too slow and only beats 5% python3 submissions.
+3. Use `queue.PriorityQueue`. Similar to approach 2, only using `PriorityQueue` to accomplish the comparing goal. The problem in this question is that I have to define an `__lt__` function for `ListNode` even if I put `(node.val, node)` in the priority queue, the reason is explained [here](https://stackoverflow.com/questions/53554199/heapq-push-typeerror-not-supported-between-instances). This solution has pretty satisfying complexity.
+4. Insert all node values into one list, sort them, and then convert the list as a singly-linked list. This is the most stupid version, but thanks to the `sort` function built-in for python3 and other optimizations, this became the fastest of all my 4 versions. It beats about 67% python3 submissions.
