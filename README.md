@@ -92,4 +92,19 @@ This question is very easy. We can simply find the pivot, and permute the array 
 
 This question is not very complex. I have two versions of solution.
 1. Simply use dfs. If `target == 0`, then simply `return [[]]`. We need an inner list because we have found something, and we need an inner list such that previous calling frame can append something into it. If `target < 0 or len(candidates == 0)`, this means we cannot find anything, then we simply `return []`. Note that second case must come after first case. After handling these two base cases, we iterate through each candidate and recursively call with `candidates[i:]` and `target - candidates[i]` as we are handling with the case that the ith candidate is included in the combination.
-2. Use a `stack` variable to record the current path we've gone through. Other process very similar to first version. 
+2. Use a `stack` variable to record the current path we've gone through. Other process very similar to first version.
+
+## Question 12: Rotate Image
+[Question description](https://leetcode.com/problems/rotate-image/) here.
+
+This question is also not conceptually complex, but very trivial in coding. My solution is to rotate layer by layer from outmost layer to inner most layer. Each layer is composed of 4 sides of the square. For example, in the following matrix:
+<p align="center">
+    <img src="doc/img/q11-mat-before-rotate.png">
+</p>
+
+, the most outer layer is `((1,2,3),(3,6,9),(9,8,7),(7,4,1))`. For each layer, we iterate through all items in one side. And in each iteration, we make swap operations to each of the 4 items in the corresponding position of each side. For example, after one iteration, the matrix becomes:
+<p align="center">
+    <img src="doc/img/q11-mat-after1-iter.png">
+</p>
+
+We do this for each of the item on one side, then we go to deeper layers.
