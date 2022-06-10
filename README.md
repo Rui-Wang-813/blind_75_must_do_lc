@@ -108,3 +108,8 @@ This question is also not conceptually complex, but very trivial in coding. My s
 </p>
 
 We do this for each of the item on one side, then we go to deeper layers.
+
+## Question 13: Group Anagrams
+[Question description](https://leetcode.com/problems/group-anagrams/) here.
+
+This question is easy. We can simply first sort all strings in the list to make sure that each appearance of an anagram is the same. Then we make a dictionary `sdict` such that `sdict[str]` is a list of the indices of each appearance of this anagram. Then, we use these indices to take the strings from original list.
