@@ -126,3 +126,11 @@ I use a moving window to solve this problem. I first set two variables `maxSum` 
 [Question description](https://leetcode.com/problems/spiral-matrix/) here.
 
 I use similar idea to [Qesution 12](https://github.com/Rui-Wang-813/blind_75_must_do_lc/blob/main/README.md#question-12-rotate-image). For each layer, I put every item clockwisely into the `result` array. Note that there is a special case in which there are only 1 row or 1 column left in a layer (as this is not a square, but a rectangle). In this special case, we can just return after we've processed the top side and the right side of the layer becuase there is nothing left in the rectangle.
+
+## Question 16: Jump Game
+[Question description](https://leetcode.com/problems/jump-game/) here.
+
+I have two versions of solution for this question:
+1. Use dynamic programming. We have `dp[i]` being whether we can jump to the last index from index `i`, and the base case is that `dp[len(nums)-1] = True`. We iterate from `i = len(nums) - 2` to `i = 0`, and for each `i`, we check `nums[i]` items in the array after it (which have been processed since our iteration is backward). If any of these items is True, then we set `dp[i] = True`, otherwise it is False.
+Unfortunately it exceeded time limit.
+2. The second version uses a `maxPos` to record the furthest index we can reach when the loop iterates to index `i`. Note that it does not necessarily jump from index `i`, but can be any index before it. In each iteration, we update `maxPos = max(nums[i], maxPos) - 1` because either `nums[i]` can help us reach to further index from `i`, or that we cannot and the `maxPos` should be one step smaller than `i - 1`. 
