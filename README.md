@@ -113,3 +113,11 @@ We do this for each of the item on one side, then we go to deeper layers.
 [Question description](https://leetcode.com/problems/group-anagrams/) here.
 
 This question is easy. We can simply first sort all strings in the list to make sure that each appearance of an anagram is the same. Then we make a dictionary `sdict` such that `sdict[str]` is a list of the indices of each appearance of this anagram. Then, we use these indices to take the strings from original list.
+
+## Question 14: Maximum Subarray
+[Question description](https://leetcode.com/problems/maximum-subarray/) here.
+
+I use a moving window to solve this problem. I first set two variables `maxSum` and `curSum`. `maxSum` is the max sum of subarray I've seen, and `curSum` is the sum of the current window. In the loop, there are three cases:
+1. `curSum < 0`: In this case, there is no way that the sum of window containing both current window and any following items will be larger than or equal to the sum of only the window of following items. So I set `maxSum = max(maxSum, curSum)` here and set `curSum = nums[i]`.
+2. `curSum >= 0 and nums[i] < 0`: In this case, it is possible that the window containing current window and some following items to be larger, but I still need to record the current sum and then go on.
+3. `curSum >= 0 and nums[i] >= 0`: This is the most simple case. I simply expand the window.
