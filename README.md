@@ -121,3 +121,8 @@ I use a moving window to solve this problem. I first set two variables `maxSum` 
 1. `curSum < 0`: In this case, there is no way that the sum of window containing both current window and any following items will be larger than or equal to the sum of only the window of following items. So I set `maxSum = max(maxSum, curSum)` here and set `curSum = nums[i]`.
 2. `curSum >= 0 and nums[i] < 0`: In this case, it is possible that the window containing current window and some following items to be larger, but I still need to record the current sum and then go on.
 3. `curSum >= 0 and nums[i] >= 0`: This is the most simple case. I simply expand the window.
+
+## Question 15: Spiral Matrix
+[Question description](https://leetcode.com/problems/spiral-matrix/) here.
+
+I use similar idea to [Qesution 12](https://github.com/Rui-Wang-813/blind_75_must_do_lc/blob/main/README.md#question-12-rotate-image). For each layer, I put every item clockwisely into the `result` array. Note that there is a special case in which there are only 1 row or 1 column left in a layer (as this is not a square, but a rectangle). In this special case, we can just return after we've processed the top side and the right side of the layer becuase there is nothing left in the rectangle.
