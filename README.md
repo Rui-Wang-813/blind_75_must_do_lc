@@ -133,4 +133,16 @@ I use similar idea to [Qesution 12](https://github.com/Rui-Wang-813/blind_75_mus
 I have two versions of solution for this question:
 1. Use dynamic programming. We have `dp[i]` being whether we can jump to the last index from index `i`, and the base case is that `dp[len(nums)-1] = True`. We iterate from `i = len(nums) - 2` to `i = 0`, and for each `i`, we check `nums[i]` items in the array after it (which have been processed since our iteration is backward). If any of these items is True, then we set `dp[i] = True`, otherwise it is False.
 Unfortunately it exceeded time limit.
-2. The second version uses a `maxPos` to record the furthest index we can reach when the loop iterates to index `i`. Note that it does not necessarily jump from index `i`, but can be any index before it. In each iteration, we update `maxPos = max(nums[i], maxPos) - 1` because either `nums[i]` can help us reach to further index from `i`, or that we cannot and the `maxPos` should be one step smaller than `i - 1`. 
+2. The second version uses a `maxPos` to record the furthest index we can reach when the loop iterates to index `i`. Note that it does not necessarily jump from index `i`, but can be any index before it. In each iteration, we update `maxPos = max(nums[i], maxPos) - 1` because either `nums[i]` can help us reach to further index from `i`, or that we cannot and the `maxPos` should be one step smaller than `i - 1`.
+
+## Question 17: Merge Intervals
+[Question description](https://leetcode.com/problems/merge-intervals/) here.
+
+To begin with, sort the list `intervals` by the $start_i$ of each interval. Then, in the loop traversing through the intervals, compare the $end_i$ with $end_{i+1}$. If $end_i \geq end_{i+1}$, then we know that the `i`th interval covers the `i+1`th interval, and we simply return the `i+1`th interval. If $ start_{i+1} \leq end_i \leq end{i+1}$, then we expand the `i`th interval and remove the `i+1`th interval. Finally, if neither of the cases is true, then we know that the two intervals do not overlap at all, we just take `i += 1`.
+
+## Question 18: Insert Interval
+[Question description](https://leetcode.com/problems/insert-interval/) here.
+
+There are two parts in this solution.
+1. Use binary search to find the index where we should insert the new interval into the intervals. The details of how I did it is in the code.
+2. After insertion, as we are gauranteed that there are not overlapping intervals in the original `intervals` list, we only need to try to merge overlapping intervals in index from `max(0, idx-1)` to `min(len(intervals), idx+1)`. 
