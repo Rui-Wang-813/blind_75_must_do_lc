@@ -145,4 +145,4 @@ To begin with, sort the list `intervals` by the $start_i$ of each interval. Then
 
 There are two parts in this solution.
 1. Use binary search to find the index where we should insert the new interval into the intervals. The details of how I did it is in the code.
-2. After insertion, as we are gauranteed that there are not overlapping intervals in the original `intervals` list, we only need to try to merge overlapping intervals in index from `max(0, idx-1)` to `min(len(intervals), idx+1)`. 
+2. After insertion, as we are gauranteed that there are not overlapping intervals in the original `intervals` list, we only need to try to merge overlapping intervals in index from `max(0, idx-1)` to `min(len(intervals), idx+1)`.  The merging technique is same with that I used in [Question 17](https://github.com/Rui-Wang-813/blind_75_must_do_lc/blob/main/README.md#question-17-merge-intervals)
