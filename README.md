@@ -146,3 +146,12 @@ To begin with, sort the list `intervals` by the $start_i$ of each interval. Then
 There are two parts in this solution.
 1. Use binary search to find the index where we should insert the new interval into the intervals. The details of how I did it is in the code.
 2. After insertion, as we are gauranteed that there are not overlapping intervals in the original `intervals` list, we only need to try to merge overlapping intervals in index from `max(0, idx-1)` to `min(len(intervals), idx+1)`.  The merging technique is same with that I used in [Question 17](https://github.com/Rui-Wang-813/blind_75_must_do_lc/blob/main/README.md#question-17-merge-intervals).
+
+## Question 19: Unique Paths
+[Question description](https://leetcode.com/problems/unique-paths/) here.
+
+I use dynamic programming in this question. `dp[i][j]` is how many unique paths there are from the cell (i, j) to the bottom right corner. There are two base cases:
+1. All cells on the right border has only one unique path toward the terminal because they can only go down. So `dp[1:m][-1] = 1`
+2. All cells on the bottom border has only one unique path toward the terminal because they can only go right. So `dp[-1][1:n] = 1`.
+
+And we have the relationship: `dp[i][j] = dp[i+1][j] + dp[i][j+1]`. Finally we return `dp[0][0]`.
