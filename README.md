@@ -155,3 +155,12 @@ I use dynamic programming in this question. `dp[i][j]` is how many unique paths 
 2. All cells on the bottom border has only one unique path toward the terminal because they can only go right. So `dp[-1][1:n] = 1`.
 
 And we have the relationship: `dp[i][j] = dp[i+1][j] + dp[i][j+1]`. Finally we return `dp[0][0]`.
+
+## Question 20: Climbing Stairs
+[Question description](https://leetcode.com/problems/climbing-stairs/) here.
+
+This is a very easy question. I also use dynamic programming in this question. `dp[i]` represents how many ways there are to climb stairs after we've climbed i stairs. There are two base cases:
+1. When we've reached the end, there is only one way.
+2. When we've reached the `n-1`th stair, there is also only one way.
+
+The relationship is `dp[i] = dp[i+1] + dp[i+2]`.
