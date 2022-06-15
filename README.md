@@ -164,3 +164,8 @@ This is a very easy question. I also use dynamic programming in this question. `
 2. When we've reached the `n-1`th stair, there is also only one way.
 
 The relationship is `dp[i] = dp[i+1] + dp[i+2]`.
+
+## Question 21: Set Matrix Zeroes
+[Question description](https://leetcode.com/problems/set-matrix-zeroes/) here.
+
+This is also a very easy question. I use a set to store the `(i, j)` of each 0 entry in the original matrix. Then, for each `(i, j)` in the set, I set the corresponding column and row to be 0.
