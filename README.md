@@ -169,3 +169,14 @@ The relationship is `dp[i] = dp[i+1] + dp[i+2]`.
 [Question description](https://leetcode.com/problems/set-matrix-zeroes/) here.
 
 This is also a very easy question. I use a set to store the `(i, j)` of each 0 entry in the original matrix. Then, for each `(i, j)` in the set, I set the corresponding column and row to be 0.
+
+## Question 22: Minimum Window Substring
+[Question description](https://leetcode.com/problems/minimum-window-substring/) here.
+
+For this question, unfortunately my own solution was flawed. I used the approach 1 of [official solution](https://leetcode.com/problems/minimum-window-substring/solution/).
+
+The algorithm has the following 4 steps:
+1. We first take two pointers `lt_ptr` and `rt_ptr` initially pointing at the start of the `s`.
+2. We move `rt_ptr` to the right to expand the current window until our window contains all chars in `t`. 
+3. Then, we move `lt_ptr` to the right to constrict the window so that we obtains a minimum possible window.
+4. Go on and repeat from step 1.
