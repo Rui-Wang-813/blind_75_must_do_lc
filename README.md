@@ -180,3 +180,10 @@ The algorithm has the following 4 steps:
 2. We move `rt_ptr` to the right to expand the current window until our window contains all chars in `t`. 
 3. Then, we move `lt_ptr` to the right to constrict the window so that we obtains a minimum possible window.
 4. Go on and repeat from step 1.
+
+## Question 23: Word Search
+[Question description](https://leetcode.com/problems/word-search/) here.
+
+My solution is to simply expand all possible paths from any cell. For a particular cell, if `board[i][j]` is not the same with `word[w_idx]`, then this path cannot constitute `word` and we abandon. Otherwise, we try to match `word[w_idx+1]` with the four neighbor cells and go on to expand.
+The idea is very simple. But note that we need to mark `board[i][j]` as visited before the recursive call and mark it as unvisited after the recursive call.
+The `helper(i, j, w_idx)` function I defined for this question returns whether we can expand a path originating from `board[i][j]` corresponding to `word[w_idx:]`.
