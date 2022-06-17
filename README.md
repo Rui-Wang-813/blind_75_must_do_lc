@@ -234,3 +234,5 @@ Here is one example:
 > preoder = [3,9,20,15,7], inorder = [9,3,15,20,7]
 
 We can see that `preorder[0]` is 3, so we know from `inorder` that the inorder traversal for the left child is `[9]`, and for the right child is `[15, 20, 7]`. By the lengths of these two lists, we know that the preorder traversal for the left child is `[9]`, and the preorder traversal for the right child is `[20, 15, 7]`.
+
+Note that this solution only works when all the values in the tree are unique. This is gauranteed in the leetcode question description.
