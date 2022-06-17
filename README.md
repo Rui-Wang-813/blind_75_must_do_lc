@@ -187,3 +187,17 @@ The algorithm has the following 4 steps:
 My solution is to simply expand all possible paths from any cell. For a particular cell, if `board[i][j]` is not the same with `word[w_idx]`, then this path cannot constitute `word` and we abandon. Otherwise, we try to match `word[w_idx+1]` with the four neighbor cells and go on to expand.
 The idea is very simple. But note that we need to mark `board[i][j]` as visited before the recursive call and mark it as unvisited after the recursive call.
 The `helper(i, j, w_idx)` function I defined for this question returns whether we can expand a path originating from `board[i][j]` corresponding to `word[w_idx:]`.
+
+## Question 24: Decode Ways
+[Question description](https://leetcode.com/problems/decode-ways/) here.
+
+My solution is dynamic programming. We have `dp[i]` represents how many ways are there to decode string `s[i:]`. There are two base cases:
+1. If `s[-1] == '0'`, then `dp[-1] = 0`.
+2. Otherwise, `dp[-1] = 1`.
+
+The relationship is as follows:
+1. `s[i] == '0'`, then we know that we cannot decode anything from `s[i:]` because this is an invalid string. So, we set `dp[i] = 0`.
+2. `int(s[i:i+2]) <= 26`, then we know that we can either take `s[i]` to decode it as a char, or we can take `s[i:i+2]` to decode it as a char. So, we set `dp[i] = dp[i+1] + dp[i+2]`.
+3. `int(s[i:i+2]) > 26`, then we know that we can only take `s[i]` and decode it as a char. So `dp[i] = dp[i+1]`.
+
+Finally, we return `dp[0]`.
