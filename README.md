@@ -217,3 +217,8 @@ This is a very easy question. Simply use DFS to check each value of both trees.
 [Question description](https://leetcode.com/problems/binary-tree-level-order-traversal/) here.
 
 For this question, I use BFS. (this is actually very obvious) I use a `frontier` to store all nodes of current level. Each time, I traverse through all nodes in the current level, and push the nodes in the next level into `frontier` and also record the number of nodes in the next level. When the current level is finished, I push the list of all values of current level into `result`, and start a new loop.
+
+## Question 28: Maximum Depth of Binary Tree
+[Question description](https://leetcode.com/problems/maximum-depth-of-binary-tree/) here.
+
+Basically I used the same idea as [Question 27](https://github.com/Rui-Wang-813/blind_75_must_do_lc/blob/main/README.md#question-27-binary-tree-level-order-traversal). Except that now I use `result` as an integer that records how many levels we've gone through. Each time I've traversed through 0 to `layer_size`, I add `result` by one.
