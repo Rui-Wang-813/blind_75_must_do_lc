@@ -213,3 +213,7 @@ I simply used DFS for this question. At each node, I have a lower bound and uppe
 
 This is a very easy question. Simply use DFS to check each value of both trees.
 
+## Question 27: Binary Tree Level Order Traversal
+[Question description](https://leetcode.com/problems/binary-tree-level-order-traversal/) here.
+
+For this question, I use BFS. (this is actually very obvious) I use a `frontier` to store all nodes of current level. Each time, I traverse through all nodes in the current level, and push the nodes in the next level into `frontier` and also record the number of nodes in the next level. When the current level is finished, I push the list of all values of current level into `result`, and start a new loop.
