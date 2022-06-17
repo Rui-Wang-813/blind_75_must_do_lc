@@ -201,3 +201,8 @@ The relationship is as follows:
 3. `int(s[i:i+2]) > 26`, then we know that we can only take `s[i]` and decode it as a char. So `dp[i] = dp[i+1]`.
 
 Finally, we return `dp[0]`.
+
+## Question 25: Validate Binary Search Tree
+[Question description](https://leetcode.com/problems/validate-binary-search-tree/) here.
+
+I simply used DFS for this question. At each node, I have a lower bound and upper bound for the value of this node. If the node value is not in the interval, then we know this tree is not a valid BST. Otherwise, if both the left and right child of current root is valid BST, then this tree is a valid BST. If not, then this tree is not a valid BST.
