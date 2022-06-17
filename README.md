@@ -206,3 +206,10 @@ Finally, we return `dp[0]`.
 [Question description](https://leetcode.com/problems/validate-binary-search-tree/) here.
 
 I simply used DFS for this question. At each node, I have a lower bound and upper bound for the value of this node. If the node value is not in the interval, then we know this tree is not a valid BST. Otherwise, if both the left and right child of current root is valid BST, then this tree is a valid BST. If not, then this tree is not a valid BST.
+
+
+## Question 26: Same Tree
+[Question description](https://leetcode.com/problems/same-tree/) here
+
+This is a very easy question. Simply use DFS to check each value of both trees.
+
