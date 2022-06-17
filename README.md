@@ -222,3 +222,15 @@ For this question, I use BFS. (this is actually very obvious) I use a `frontier`
 [Question description](https://leetcode.com/problems/maximum-depth-of-binary-tree/) here.
 
 Basically I used the same idea as [Question 27](https://github.com/Rui-Wang-813/blind_75_must_do_lc/blob/main/README.md#question-27-binary-tree-level-order-traversal). Except that now I use `result` as an integer that records how many levels we've gone through. Each time I've traversed through 0 to `layer_size`, I add `result` by one.
+
+## Question 29: Construct Binary Tree from Preorder and Inorder Traversal
+[Question description](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) here.
+
+The solution is ideally simple. We first find the root value from the `preorder` list as we know that in preorder, the root value is always the first. Then, we find the index of the root value in the `inorder` list. The length of `inorder` before that index is the number of nodes in the left child, and the length after that index is the number of nodes in the right child. We thus gain the `inorder` for both left and right child tree.
+We know that in `preorder`, all tree nodes in left child comes before all tree nodes in right child. So, we can use the length we just gained to get the `preorder` for left and right child trees as well.
+Now that we get all information for recursion, just use recursive call to construct the left and right children.
+
+Here is one example:
+> preoder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+
+We can see that `preorder[0]` is 3, so we know from `inorder` that the inorder traversal for the left child is `[9]`, and for the right child is `[15, 20, 7]`. By the lengths of these two lists, we know that the preorder traversal for the left child is `[9]`, and the preorder traversal for the right child is `[20, 15, 7]`.
