@@ -236,3 +236,19 @@ Here is one example:
 We can see that `preorder[0]` is 3, so we know from `inorder` that the inorder traversal for the left child is `[9]`, and for the right child is `[15, 20, 7]`. By the lengths of these two lists, we know that the preorder traversal for the left child is `[9]`, and the preorder traversal for the right child is `[20, 15, 7]`.
 
 Note that this solution only works when all the values in the tree are unique. This is gauranteed in the leetcode question description.
+
+## Question 30: Best Time to Buy and Sell Stock
+[Question description](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) here.
+
+I used fast solution by [mageshyt](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/discuss/1735550/Python-Javascript-Easy-solution-with-very-clear-Explanation). His explanation is very clean and neat.
+I would like to provide a proof here: 
+1. Assume that the best buy and sell dates are `i` and `j`. We know that `i < j`. 
+2. We also know that `prices[i]` is the minimum of `prices[0:j]`. We can prove this by contradiction: if there is an `i1` in the interval [0:j], then `prices[j] - prices[i1] > prices[j] - prices[i1]` and thus `i` is not optimal.
+3. Based on the fact from step 2, we know that our solution will always update our left pointer `lt` to be `i` when we reached `rt = i`. Because what every `lt` was, `prices[i] < prices[lt]`.
+4. Based on the fact from step 2, we also know that `lt` will not be updated before our `rt` reach `j` as we know that `prices[j]` is minimum of `prices[0:j]`.
+5. And so our solution will return `prices[j] - prices[i]`. And the result is correct.
+
+## Question 31: Binary Tree Maximum Path Sum
+[Question description](https://leetcode.com/problems/binary-tree-maximum-path-sum/) here.
+
+I would use a postorder DFS to solve this question. I create a recursive helper function. Given a tree root, the helper function returns the max path sum ending at this root. In its body, it takes the max path sum ending at its left and right children, and use them to get the max path sum including the root itself.
