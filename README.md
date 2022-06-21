@@ -252,3 +252,8 @@ I would like to provide a proof here:
 [Question description](https://leetcode.com/problems/binary-tree-maximum-path-sum/) here.
 
 I would use a postorder DFS to solve this question. I create a recursive helper function. Given a tree root, the helper function returns the max path sum ending at this root. In its body, it takes the max path sum ending at its left and right children, and use them to get the max path sum including the root itself.
+
+## Question 32: Valid Palindrome
+[Question description](https://leetcode.com/problems/valid-palindrome/) here.
+
+This question is very easy. I simply have two pointers, `i` and `j`. `i` is the left pointer that starts from the start of the string, and `j` is the right pointer that starts from the end of the string. I move `i` from left to right and `j` from right to left, if `s[i]` is not alphanumeric, I simply have `i += 1`, and I do the same for `j`. Then, I compare `s[i]` and `s[j]`. If they are not equal, then I know that `s` is not palindrome.
