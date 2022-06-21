@@ -257,3 +257,9 @@ I would use a postorder DFS to solve this question. I create a recursive helper 
 [Question description](https://leetcode.com/problems/valid-palindrome/) here.
 
 This question is very easy. I simply have two pointers, `i` and `j`. `i` is the left pointer that starts from the start of the string, and `j` is the right pointer that starts from the end of the string. I move `i` from left to right and `j` from right to left, if `s[i]` is not alphanumeric, I simply have `i += 1`, and I do the same for `j`. Then, I compare `s[i]` and `s[j]`. If they are not equal, then I know that `s` is not palindrome.
+
+## Question 33: Longest Consecutive Sequence
+[Question description](https://leetcode.com/problems/longest-consecutive-sequence/) here.
+
+This question is very easy. Initially I was trying to use an algorithm similar to what I used for Question 30 and use `rt - lt` to update `maxLen`, but it turns out that it did not work when there are duplicate elements in the middle of the longest subsequence.
+So I used only one pointer `rt` and used `curLen` to record the length of the consecutive sequence ending at index `rt`. Note that we need to return `max(maxLen, curLen)` in case the last item is in the longest consecutive sequence and the loop did not update the `maxLen`.
