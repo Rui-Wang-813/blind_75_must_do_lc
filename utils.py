@@ -10,6 +10,12 @@ class TreeNode:
         self.left = left
         self.right = right
 
+# Greph Node structure
+class Node:
+    def __init__(self, val = 0, neighbors = None):
+        self.val = val
+        self.neighbors = neighbors if neighbors is not None else []
+
 # helper function to construct binary tree from a list by BFS.
 def construct_bin_tree(lst):
         root = TreeNode(lst[0])
@@ -33,3 +39,46 @@ def construct_bin_tree(lst):
             l_idx += 1
         
         return root
+
+# helper function to convert an adjacency matrix to a Graph
+def construct_graph(adj_mat):
+    val2Node = {}
+
+    idx = 0
+    for adj_lst in adj_mat:
+        nval = idx + 1
+
+        newNode = None
+        if nval in val2Node.keys():
+            newNode = val2Node[nval]
+        else:
+            newNode = Node(nval)
+            val2Node[nval] = newNode
+        
+        for adj_val in adj_lst:
+            adjNode = None
+            if adj_val in val2Node.keys():
+                adjNode = val2Node[adj_val]
+            else:
+                adjNode = Node(adj_val)
+                val2Node[adj_val] = adjNode
+            
+            newNode.neighbors.append(adjNode)
+        
+        idx += 1
+        
+    return val2Node[1]
+
+def dfs_print(node):
+    visited = set()
+
+    def dfs(rootNode):
+        if rootNode in visited:
+            return 
+        visited.add(rootNode)
+        
+        print(rootNode.val)
+        for childNode in rootNode.neighbors:
+            dfs(childNode)
+    
+    dfs(node)

@@ -263,3 +263,8 @@ This question is very easy. I simply have two pointers, `i` and `j`. `i` is the 
 
 This question is very easy. Initially I was trying to use an algorithm similar to what I used for Question 30 and use `rt - lt` to update `maxLen`, but it turns out that it did not work when there are duplicate elements in the middle of the longest subsequence.
 So I used only one pointer `rt` and used `curLen` to record the length of the consecutive sequence ending at index `rt`. Note that we need to return `max(maxLen, curLen)` in case the last item is in the longest consecutive sequence and the loop did not update the `maxLen`.
+
+## Question 34: Clone Graph
+[Question description](https://leetcode.com/problems/clone-graph/) here.
+
+This question is simple. I just used BFS to create a copied graph. I used a `val2Node` dictionary to store a mapping between node value to the node so that I won't create duplicate nodes. This only works when the graph nodes have unique values, which is gauranteed in the problem description.
