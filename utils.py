@@ -18,9 +18,9 @@ class Node:
 
 # LinkedList Node structure
 class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
 # helper function to construct binary tree from a list by BFS.
 def construct_bin_tree(lst):
@@ -88,3 +88,22 @@ def dfs_print(node):
             dfs(childNode)
     
     dfs(node)
+
+def construct_LL_from_lst(lst):
+    head = ListNode(lst[0])
+    temp = head
+
+    for n in lst[1:]:
+        temp.next = ListNode(n)
+        temp = temp.next
+    
+    return head
+
+def print_LL(node):
+    s = str(node.val)
+    node = node.next
+    
+    while node != None:
+        s += "-> " + str(node.val)
+        node = node.next
+    print(s)

@@ -280,3 +280,8 @@ Then I use dynamic programming and set `dp[i]` to be whether `s[i:]` can be segm
 
 This question is very easy. Initially I used a set `visited` to visit all `ListNode` that I've visited. If we ever visit a visited node again, then we know there is a cycle. Unfortunately this method is not very fast.
 Then, I use two pointers. `ptr1` takes one step each time and `ptr2` takes two steps each time. Since `ptr2` is one step faster than `ptr1`, we know that they will always meet if there is a cycle and the time is $\Omega(n)$.
+
+## Question 37: Reorder List
+[Question description](https://leetcode.com/problems/reorder-list/) here.
+
+This question is also conceptually easy. First, use a linear time loop to map index to the corresponding `ListNode`. Then, in the second loop, manipulate the `next` field of each node to make the list correspond to the requirement.
