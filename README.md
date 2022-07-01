@@ -268,3 +268,9 @@ So I used only one pointer `rt` and used `curLen` to record the length of the co
 [Question description](https://leetcode.com/problems/clone-graph/) here.
 
 This question is simple. I just used BFS to create a copied graph. I used a `val2Node` dictionary to store a mapping between node value to the node so that I won't create duplicate nodes. This only works when the graph nodes have unique values, which is gauranteed in the problem description.
+
+## Question 35: Word Break
+[Question description](https://leetcode.com/problems/word-break/) here.
+
+This question is simple. At first I used tree recursion and it worked, but as I predicted, it was too slow and exceeded time limit.
+Then I use dynamic programming and set `dp[i]` to be whether `s[i:]` can be segmented by the `wordDict`. I traverse from right to left of `s` and for every index i, I try to match every word in the `wordDict` with string start from `i` and if there is a match and that `dp[i+len(word)]` is True, I set `dp[i]` to be True. Finally I return `dp[0]`.
