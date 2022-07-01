@@ -16,6 +16,12 @@ class Node:
         self.val = val
         self.neighbors = neighbors if neighbors is not None else []
 
+# LinkedList Node structure
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
 # helper function to construct binary tree from a list by BFS.
 def construct_bin_tree(lst):
         root = TreeNode(lst[0])

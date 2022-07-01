@@ -274,3 +274,9 @@ This question is simple. I just used BFS to create a copied graph. I used a `val
 
 This question is simple. At first I used tree recursion and it worked, but as I predicted, it was too slow and exceeded time limit.
 Then I use dynamic programming and set `dp[i]` to be whether `s[i:]` can be segmented by the `wordDict`. I traverse from right to left of `s` and for every index i, I try to match every word in the `wordDict` with string start from `i` and if there is a match and that `dp[i+len(word)]` is True, I set `dp[i]` to be True. Finally I return `dp[0]`.
+
+## Question 36: Linked List Cycle
+[Question description](https://leetcode.com/problems/linked-list-cycle/) here.
+
+This question is very easy. Initially I used a set `visited` to visit all `ListNode` that I've visited. If we ever visit a visited node again, then we know there is a cycle. Unfortunately this method is not very fast.
+Then, I use two pointers. `ptr1` takes one step each time and `ptr2` takes two steps each time. Since `ptr2` is one step faster than `ptr1`, we know that they will always meet if there is a cycle and the time is $\Omega(n)$.
