@@ -290,3 +290,8 @@ This question is also conceptually easy. First, use a linear time loop to map in
 [Question description](https://leetcode.com/problems/maximum-product-subarray/) here.
 
 I didn't come up with a good solution for this question. I used solution from discussion thread [here](https://leetcode.com/problems/maximum-product-subarray/discuss/2380481/Python-O(N)-oror-Simple-and-Beginner-friendly-solution). It is very easy to use induction to prove that the `curMin` and `curMax` are correct.
+
+## Question 39: Find Minimum in Rotated Sorted Array
+[Question description](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) here.
+
+Use binary search to find the smallest element in the array. If an element is smaller than the last element in `nums`, then apparently it is either the smallest element or it is just one of the elements in the samller part of the array (the part that is smaller and not rotated to the beginning of array). If it is larger than the element previous to it, then we simply find the index in the left part before that index.
