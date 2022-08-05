@@ -285,3 +285,8 @@ Then, I use two pointers. `ptr1` takes one step each time and `ptr2` takes two s
 [Question description](https://leetcode.com/problems/reorder-list/) here.
 
 This question is also conceptually easy. First, use a linear time loop to map index to the corresponding `ListNode`. Then, in the second loop, manipulate the `next` field of each node to make the list correspond to the requirement.
+
+## Question 38: Maximum Product Subarray
+[Question description](https://leetcode.com/problems/maximum-product-subarray/) here.
+
+I didn't come up with a good solution for this question. I used solution from discussion thread [here](https://leetcode.com/problems/maximum-product-subarray/discuss/2380481/Python-O(N)-oror-Simple-and-Beginner-friendly-solution). It is very easy to use induction to prove that the `curMin` and `curMax` are correct.
